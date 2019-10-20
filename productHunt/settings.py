@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'productHunt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mywebsitedb',
+        'NAME': 'myhuntdb',
         'USER': 'postgres',
         'PASSWORD': 'Password1111',
         'HOST': 'localhost',
