@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load staticfiles %}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,32 +18,39 @@
     <!-- HEADER -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href=""
-          ><strong>Mertens Applications</strong></a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="">Option 1</a>
-            <a class="nav-item nav-link" href="">Option 2</a>
-            <a class="nav-item nav-link" href="">Option 3</a>
+        <div class="container">
+          <a class="navbar-brand" href="">
+            <img
+              class="d-inline-block align-top pr-1"
+              src="{% static 'logoM.png' %}"
+              alt="Logo"
+              height="35"
+              width="35"
+            /><strong>Mertens Applications</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+              <a class="nav-item nav-link text-light" href="">Sign Up</a>
+              <a class="nav-item nav-link text-light" href="">Log In</a>
+            </div>
           </div>
         </div>
       </nav>
     </header>
 
     <!-- MAIN -->
-    <main role="main" class="p-3">
+    <main role="main" class="p-4 bg-success">
       {% block content %} {% endblock %}
     </main>
 
@@ -50,6 +58,16 @@
     <footer class="text-muted" style="background-color: #e3f2fd;">
       <div class="container text-center">
         <p>© {% now "Y" %} by Carlos Mertens. All rights reserved.</p>
+      </div>
+      <div class="container">
+        Icons made by
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+          >Freepik</a
+        >
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon"
+          >www.flaticon.com</a
+        >
       </div>
     </footer>
 
