@@ -10,7 +10,49 @@
   <body>
     {% block content %}
 
-    <div class="container bg-light"><h1>Sign Up!!</h1></div>
+    <div class="container bg-light mt-4">
+      <div class="jumbotron bg-light">
+        <h1 class="display-4 text-primary">Create an account</h1>
+        <p class="lead">
+          Simple sign up process that requires a username and password. You will
+          be able to up-vote for the projects hunted in this page with this
+          account.
+        </p>
+        <hr class="my-4" />
+
+        <div class="container p-2">
+          <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+
+            <label for="username">Username:</label>
+            <br />
+            <input type="text" id="username" placeholder="Mr. Doe" required />
+            <br />
+
+            <br />
+
+            <label for="my-password">Password:</label>
+            <br />
+            <input type="password" name="password1" id="my-password" /> <br />
+
+            <br />
+
+            <label for="match-password">Confirm password:</label>
+            <br />
+            <input type="password" name="password2" id="match-password" />
+            <br />
+
+            <br />
+
+            <input
+              type="submit"
+              value="Sign Up!"
+              class="btn btn-primary btn-lg"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
 
     {% endblock content %}
   </body>
