@@ -36,5 +36,6 @@ def login(request):
 
 
 def logout(request):
-    # TODO: Route it to home page
-    return render(request, 'accountApp/logout.html')
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('home')
