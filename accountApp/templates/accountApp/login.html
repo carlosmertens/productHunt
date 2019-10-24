@@ -5,12 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login</title>
-    {% extends 'base.html' %} {% load staticfiles %}
   </head>
   <body>
-    {% block content %}
+    {% extends 'base.html' %} {% block content %}
 
-    <div class="container bg-light"><h1>Login!!</h1></div>
+    <div class="container bg-light mt-4">
+      <div class="jumbotron bg-light">
+        <h1 class="display-4 text-primary">Login</h1>
+        <p class="lead">
+          Login with your username in order to be able to up-vote for the
+          projects hunted.
+        </p>
+        <hr class="my-4" />
+
+        <div class="container p-2">
+          <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+
+            <label for="username">Username:</label>
+            <br />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Django"
+              required
+            />
+            <br />
+
+            <br />
+
+            <label for="my-password">Password:</label>
+            <br />
+            <input type="password" name="password" id="my-password" /> <br />
+
+            <br />
+
+            <input type="submit" value="Login" class="btn btn-primary btn-lg" />
+          </form>
+          <br />
+          <!-- Display error message if the username has been taken already -->
+          {% if error %}
+
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
 
     {% endblock content %}
   </body>
