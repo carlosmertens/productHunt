@@ -8,7 +8,75 @@
   </head>
   <body>
     {% extends 'base.html' %} {% block content %}
-    <h1>Create a Product</h1>
+    <div class="container bg-light mt-4">
+      <div class="jumbotron bg-light">
+        <h1 class="display-4 text-primary">Create a product</h1>
+        <p class="lead">
+          Thank you for hunting a new product. Please give all the details blow
+          in order to publish the product.
+        </p>
+        <hr class="my-4" />
+
+        <div class="container p-2">
+          <form
+            action="{% url 'create' %}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+
+            <label for="title">Title:</label>
+            <br />
+            <input type="text" name="title" id="title" />
+            <br />
+
+            <br />
+
+            <label for="url">Link to product:</label>
+            <br />
+            <input type="text" name="url" id="url" /> <br />
+
+            <br />
+
+            <label for="icon">Load Icon:</label>
+            <br />
+            <input type="file" name="icon" id="icon" />
+            <br />
+
+            <br />
+
+            <label for="image">Load Image:</label>
+            <br />
+            <input type="file" name="image" id="image" />
+            <br />
+
+            <br />
+
+            <label for="body">Summary:</label>
+            <br />
+            <textarea name="body" id="body" cols="40" rows="5"></textarea>
+            <!-- <input type="textarea" name="body" id="body" /> -->
+            <br />
+
+            <br />
+
+            <input
+              type="submit"
+              value="Submit!"
+              class="btn btn-primary btn-lg"
+            />
+          </form>
+          <br />
+          <!-- Display error message if the username has been taken already -->
+          {% if error %}
+
+          <div class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
     {% endblock content %}
   </body>
 </html>
