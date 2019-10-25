@@ -27,34 +27,40 @@
 
             <label for="title">Title:</label>
             <br />
-            <input type="text" name="title" id="title" />
+            <input type="text" name="title" id="title" required />
             <br />
 
             <br />
 
             <label for="url">Link to product:</label>
             <br />
-            <input type="text" name="url" id="url" /> <br />
+            <input type="url" name="url" id="url" required /> <br />
 
             <br />
 
             <label for="icon">Load Icon:</label>
             <br />
-            <input type="file" name="icon" id="icon" />
+            <input type="file" name="icon" id="icon" required />
             <br />
 
             <br />
 
             <label for="image">Load Image:</label>
             <br />
-            <input type="file" name="image" id="image" />
+            <input type="file" name="image" id="image" required />
             <br />
 
             <br />
 
             <label for="body">Summary:</label>
             <br />
-            <textarea name="body" id="body" cols="40" rows="5"></textarea>
+            <textarea
+              name="body"
+              id="body"
+              cols="40"
+              rows="5"
+              required
+            ></textarea>
             <!-- <input type="textarea" name="body" id="body" /> -->
             <br />
 
