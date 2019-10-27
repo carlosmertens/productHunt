@@ -36,12 +36,18 @@
           </div>
 
           <div class="col-4">
-            <a href=""
-              ><button type="button" class="btn btn-primary btn-lg btn-block">
-                <ion-icon name="arrow-dropup"></ion-icon>
-                Upvote {{ product.votes_total }}
-              </button></a
-            >
+            <div class="justify-content-center">
+              <h4 class="text-secondary">Votes: {{ product.votes_total }}</h4>
+
+              <hr />
+
+              <a href=""
+                ><button type="button" class="btn btn-primary btn-lg">
+                  <ion-icon name="arrow-dropup"></ion-icon>
+                  Upvote
+                </button></a
+              >
+            </div>
           </div>
         </div>
 
