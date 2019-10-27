@@ -7,10 +7,62 @@
     <title>Product's Detail</title>
   </head>
   <body>
-    {% extends 'base.html' %} {% block content %} Welocome to detail of the
-    product
-    <br />
-    {{ product.title }}
+    {% extends 'base.html' %} {% block content %}
+    <div class="container bg-light mt-4">
+      <div class="jumbotron bg-light">
+        <div class="row">
+          <div class="col-2">
+            <img
+              src="{{ product.icon.url }}"
+              alt="icon"
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+
+          <div class="col-10">
+            <a href="{{ product.url }}" target="_blank"
+              ><h1 class="display-4 text-primary">{{ product.title }}</h1></a
+            >
+          </div>
+        </div>
+
+        <div class="row pt-4">
+          <div class="col-8">
+            <img
+              src="{{ product.image.url }}"
+              alt="image"
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+
+          <div class="col-4">
+            <a href=""
+              ><button type="button" class="btn btn-primary btn-lg btn-block">
+                <ion-icon name="arrow-dropup"></ion-icon>
+                Upvote {{ product.votes_total }}
+              </button></a
+            >
+          </div>
+        </div>
+
+        <div class="row pt-4">
+          <div class="col-4">
+            <h4 class="text-secondary">
+              Hunted by {{ product.hunter.username }}
+            </h4>
+          </div>
+          <div class="col-4 text-right">
+            <h5 class="text-secondary">{{ product.pub_date }}</h5>
+          </div>
+        </div>
+
+        <div class="row pt-4">
+          <div class="col-8">
+            <p>{{ product.body }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
     {% endblock content %}
   </body>
 </html>
