@@ -41,7 +41,7 @@
 
               <hr />
 
-              <a href=""
+              <a href="javascript:{document.getElementById('upvote').submit()}"
                 ><button type="button" class="btn btn-primary btn-lg">
                   <ion-icon name="arrow-dropup"></ion-icon>
                   Upvote
@@ -69,6 +69,10 @@
         </div>
       </div>
     </div>
+    <form id="upvote" method="POST" action="{% url 'upvote' product.id %}">
+      {% csrf_token%}
+      <input type="hidden" />
+    </form>
     {% endblock content %}
   </body>
 </html>
