@@ -21,4 +21,4 @@ class Product(models.Model):
         self.pub_date.strftime('%b %e %Y')
 
     def summary(self):
-        return self.body[:100]
+        return self.body[:200] + " ..."

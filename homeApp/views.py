@@ -5,7 +5,8 @@ from django.utils import timezone
 
 
 def home(request):
-    return render(request, 'homeApp/index.html')
+    products = Product.objects
+    return render(request, 'homeApp/index.html', {'products': products})
 
 
 @login_required

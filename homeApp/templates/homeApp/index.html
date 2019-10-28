@@ -9,23 +9,56 @@
   <body>
     {% extends 'base.html' %} {% block content %}
 
-    <div class="container bg-light">
-      <div class="jumbotron">
-        <h1 class="display-4">Welcome to Product Hunt!!!</h1>
+    <div class="container bg-light mt-4">
+      <div class="jumbotron bg-light">
+        <h1 class="display-4 text-primary text-center">
+          Welcome to Product Hunt!!!
+        </h1>
+        <br />
         <p class="lead">
           I am happy to see you here. Let's find great products together so we
           can hlp other to make an smart and informed decision.
         </p>
+        <br />
         <hr class="my-4" />
-        <p>
-          Just log in and create your product you have found, Mr Hunter!
-        </p>
-        <a
-          class="btn btn-primary btn-lg"
-          href="{% url 'create' %}"
-          role="button"
-          >Create!</a
-        >
+
+        <div class="container">
+          {% for product in products.all %}
+
+          <div class="row">
+            <div class="col-2">
+              <img
+                src="{{ product.icon.url }}"
+                alt="icon"
+                class="img-fluid img-thumbnail"
+                height="100"
+                width="100"
+              />
+            </div>
+
+            <div class="col-8">
+              <h5 class="text-secondary">{{ product.title }}</h5>
+              <p>{{ product.summary }}</p>
+            </div>
+
+            <div class="col-2">
+              <h5 class="text-secondary">Upvotes: {{ product.votes_total }}</h5>
+
+              <hr />
+
+              <a
+                class="btn btn-primary"
+                href="{% url 'detail' product.id %}"
+                role="button"
+                >Details</a
+              >
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          {% endfor %}
+        </div>
       </div>
     </div>
 
